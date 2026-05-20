@@ -1,48 +1,48 @@
 //^ console.log() konsol oynaga natijani chiqaradi
 
-// console.log("Hello world!")
+console.log("Hello world!")
 
 //^ o'zgaruvchilar
 
-// let buMeningIsmim = "Shohjahon"
-// // console.log(buMeningIsmim)
+let buMeningIsmim = "Shohjahon"
+console.log(buMeningIsmim)
 
-// // // buMeningIsmim = "Jasurbek"
-// // // // console.log(buMeningIsmim)
-
-
-// // // // // const yoshim = 14
-// // // // // // console.log(yoshim)
-
-// // // // // // // yoshim = 15
-
-// // // // // // console.log(yoshim)
+buMeningIsmim = "Jasurbek"
+console.log(buMeningIsmim)
 
 
-//^ Operatorlar
+const yoshim = 14
+console.log(yoshim)
 
-// let son1 = 125
-// let son2 = 57
+yoshim = 15
 
-// let yigindi = son1 + son2
-// console.log(yigindi)
+console.log(yoshim)
 
-// let ayirma = son1 - son2
-// console.log(ayirma)
 
-// let bolish = son1 / son2
-// console.log(bolish)
+^ Operatorlar
 
-// let qoldiq = son1 % son2
-// console.log(qoldiq)
+let son1 = 125
+let son2 = 57
 
-// let daraja = son1 ** son2
-// console.log(daraja)
+let yigindi = son1 + son2
+console.log(yigindi)
 
-// let kopaytrish = son1 * son2
-// console.log(kopaytrish)
+let ayirma = son1 - son2
+console.log(ayirma)
 
-// Topshiriq
+let bolish = son1 / son2
+console.log(bolish)
+
+let qoldiq = son1 % son2
+console.log(qoldiq)
+
+let daraja = son1 ** son2
+console.log(daraja)
+
+let kopaytrish = son1 * son2
+console.log(kopaytrish)
+
+Topshiriq
 
 let son3 = 1234
 let son4 = 48
