@@ -1,0 +1,248 @@
+/* Umumiy sozlamalar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f5f7;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header dizayni */
+.main-header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #7000ff;
+}
+
+.logo h1 span {
+    color: #1f1f1f;
+}
+
+.search-box {
+    display: flex;
+    flex: 0 1 500px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    background-color: #7000ff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.user-menu a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+#gmail-display {
+    color: #7000ff;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#cart-counter {
+    background-color: #e8e3ff;
+    color: #7000ff;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+/* Kategoriya menyusi */
+.categories-nav {
+    background-color: #fff;
+    padding: 10px 50px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.categories-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.categories-nav ul li {
+    margin-right: 25px;
+}
+
+.categories-nav ul li a {
+    text-decoration: none;
+    color: #555;
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+.categories-nav ul li a:hover,
+.categories-nav ul li a.active {
+    color: #7000ff;
+    border-bottom: 2px solid #7000ff;
+}
+
+/* Reklama Banneri */
+.promo-banner {
+    background: linear-gradient(135deg, #111, #444);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.promo-banner h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Topshirish punktlari */
+.locations-section {
+    margin-bottom: 35px;
+}
+
+.locations-section h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.locations-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.location-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+    border-left: 4px solid #7000ff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.location-card h4 {
+    margin-bottom: 5px;
+    color: #7000ff;
+}
+
+/* Mahsulotlar tarmog'i */
+.products-section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.products-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #fff;
+    width: calc(25% - 15px);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #eaeaea;
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+    height: 38px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 12px;
+}
+
+.current-price {
+    color: #1f1f1f;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    background-color: transparent;
+    border: 1px solid #7000ff;
+    color: #7000ff;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: auto;
+    transition: 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #7000ff;
+    color: white;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #1f1f1f;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}

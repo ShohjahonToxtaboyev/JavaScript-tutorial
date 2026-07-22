@@ -197,10 +197,58 @@
 //   i++;
 // }
 // 27. Foydalanuvchi kiritgan sonning juft yoki toq ekanligini if yordamida aniqlang
+// let son = prompt("Sonni kiriting:");
+// son = Number(son);
 
+// if (son % 2 === 0) {
+//     console.log(son + " — juft son");
+// } else {
+//     console.log(son + " — toq son");
+// }
 // 28. Berilgan massivning nechta elementdan iborat ekanligini for yordamida chiqaring
+// let massiv = [10, 20, 30, 40, 50];
+// let sonlash = 0;
+
+// for (let i = 0; i < massiv.length; i++) {
+//     sonlash++;
+// }
+
+// console.log("Massivda " + sonlash + " ta element bor");
 // 29. 1 dan 12 gacha bo'lgan oylarni nomlari bilan for yordamida chiqaring
+// for (let i = 1; i <= 12; i++) {
+//     let oy = "";
+    
+//     if (i === 1) oy = "Yanvar";
+//     else if (i === 2) oy = "Fevral";
+//     else if (i === 3) oy = "Mart";
+//     else if (i === 4) oy = "Aprel";
+//     else if (i === 5) oy = "May";
+//     else if (i === 6) oy = "Iyun";
+//     else if (i === 7) oy = "Iyul";
+//     else if (i === 8) oy = "Avgust";
+//     else if (i === 9) oy = "Sentabr";
+//     else if (i === 10) oy = "Oktabr";
+//     else if (i === 11) oy = "Noyabr";
+//     else if (i === 12) oy = "Dekabr";
+
+//     console.log(i + " - " + oy);
+// }
 // 30. Foydalanuvchi kiritgan 3 ta sondan eng kattasini if yordamida toping
+// let son1 = Number(prompt("1-sonni kiriting:"));
+// let son2 = Number(prompt("2-sonni kiriting:"));
+// let son3 = Number(prompt("3-sonni kiriting:"));
+
+// let engKatta = son1;
+
+// if (son2 > engKatta) {
+//     engKatta = son2;
+// }
+
+// if (son3 > engKatta) {
+//     engKatta = son3;
+// }
+
+// console.log("Eng katta son: " + engKatta);
 
 // ==========================================
 // O'RTA SAVOLLAR (31-60)

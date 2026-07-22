@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzum Market Mega Klon</title>
+    <link rel="stylesheet" href="./wf.css">
+</head>
+<body>
+
+    <!-- Yuqori qism (Header) -->
+    <header class="main-header">
+        <div class="logo">
+            <h1 id="logo-home" style="cursor: pointer;">Uzum<span>Market</span></h1>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="BMW, Mercedes, Anime yoki Manzaralarni qidirish...">
+            <button id="search-btn">Qidirish</button>
+        </div>
+
+        <nav class="user-menu">
+            <a href="#" id="gmail-display">Kirish</a>
+            <a href="#">Saralanganlar</a>
+            <a href="#" id="cart-counter">Savat (0)</a>
+        </nav>
+    </header>
+
+    <!-- Kategoriya menyusi -->
+    <nav class="categories-nav">
+        <ul id="categories-list">
+            <li><a href="#" data-category="all" class="active">Hamma mahsulotlar</a></li>
+            <li><a href="#" data-category="BMW">BMW</a></li>
+            <li><a href="#" data-category="Mercedes">Mercedes-Benz</a></li>
+            <li><a href="#" data-category="Mashinalar">Boshqa Mashinalar</a></li>
+            <li><a href="#" data-category="Anime">Anime Personajlari</a></li>
+            <li><a href="#" data-category="Manzaralar">Go'zal Manzaralar</a></li>
+        </ul>
+    </nav>
+
+    <!-- Asosiy qism -->
+    <main class="container">
+        
+        <!-- Reklama Banneri -->
+        <section class="promo-banner">
+            <h2>Avto, Manzara & Anime Mega Galereyasi</h2>
+            <p>Jami 2000 ta mutlaqo har xil va yuqori sifatli rasmlar to'plami.</p>
+        </section>
+
+        <!-- Topshirish punktlari -->
+        <section class="locations-section">
+            <h2>Topshirish punktlari (Qadrdon joylarimiz)</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h4>Toshkent shahri</h4>
+                    <p>Chilonzor 9-kvartal, 21-bino. Mo'ljal: Metro Chilonzor.</p>
+                </div>
+                <div class="location-card">
+                    <h4>Samarqand shahri</h4>
+                    <p>Registon ko'chasi, 45-uy. Mo'ljal: Registon maydoni yaqinida.</p>
+                </div>
+                <div class="location-card">
+                    <h4>Xorazm (Urganch)</h4>
+                    <p>Al-Xorazmiy ko'chasi, 12-bino. Mo'ljal: Markaziy dehqon bozori.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mahsulotlar bo'limi -->
+        <section class="products-section">
+            <h2 id="section-title">Hamma Mahsulotlar (2000 ta)</h2>
+            <div class="products-grid" id="products-container"></div>
+        </section>
+    </main>
+
+    <!-- Saytning pastki qismi -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Uzum Market Kloni. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script src="./js.js"></script>
+</body>
+</html>
