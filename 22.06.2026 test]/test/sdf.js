@@ -37,7 +37,7 @@
 
 // 3-masala: [if-else] Berilgan yosh bo'yicha kishi "bolalik" (0-12),
 // "o'smirlik" (13-17), "kattalar" (18dan katta) toifasiga tegishli ekanligini aniqlang.
-function masala3(yosh) {}
+
 function masala3(yosh) {
     if (yosh >= 0 && yosh <= 12) {
         return "bolalik";
@@ -50,14 +50,21 @@ function masala3(yosh) {
     }
 }
 
-// Tekshirib ko'rish uchun misollar:
-console.log(masala3(10));  // Natija: "bolalik"
-console.log(masala3(15));  // Natija: "o'smirlik"
-console.log(masala3(25));  // Natija: "kattalar"
+
+console.log(masala3(10));  
+console.log(masala3(15));  
+console.log(masala3(25)); 
 
 // 4-masala: [for] 1 dan berilgan songacha bo'lgan barcha sonlar yig'indisini
 // hisoblovchi funksiya yozing.
-function masala4(son) {}
+function masala4(son) {
+    let y = 0
+     for (let i=1; i <= son; i++ ) {
+        
+     }
+}
+
+
 
 // 5-masala: [for] Berilgan sonning faktorialini hisoblovchi funksiya yozing.
 function masala5(son) {}
