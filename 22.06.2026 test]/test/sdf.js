@@ -38,58 +38,127 @@
 // 3-masala: [if-else] Berilgan yosh bo'yicha kishi "bolalik" (0-12),
 // "o'smirlik" (13-17), "kattalar" (18dan katta) toifasiga tegishli ekanligini aniqlang.
 
-function masala3(yosh) {
-    if (yosh >= 0 && yosh <= 12) {
-        return "bolalik";
-    } else if (yosh >= 13 && yosh <= 17) {
-        return "o'smirlik";
-    } else if (yosh >= 18) {
-        return "kattalar";
-    } else {
-        return "notog'ri yosh kiritildi";
-    }
-}
+// function masala3(yosh) {
+//     if (yosh >= 0 && yosh <= 12) {
+//         return "bolalik";
+//     } else if (yosh >= 13 && yosh <= 17) {
+//         return "o'smirlik";
+//     } else if (yosh >= 18) {
+//         return "kattalar";
+//     } else {
+//         return "notog'ri yosh kiritildi";
+//     }
+// }
 
 
-console.log(masala3(10));  
-console.log(masala3(15));  
-console.log(masala3(25)); 
+// console.log(masala3(10));  
+// console.log(masala3(15));  
+// console.log(masala3(25)); 
 
 // 4-masala: [for] 1 dan berilgan songacha bo'lgan barcha sonlar yig'indisini
 // hisoblovchi funksiya yozing.
-function masala4(son) {
-    let y = 0
-     for (let i=1; i <= son; i++ ) {
+// function masala4(son) {
+//     let y = 0
+//      for (let i=1; i <= son; i++ ) {
         
-     }
-}
+//      }
+// }
 
 
 
 // 5-masala: [for] Berilgan sonning faktorialini hisoblovchi funksiya yozing.
-function masala5(son) {}
+
+// function faktorialHisobla(son) {
+//     let natija = 1; 
+
+//     for (let i = 1; i <= son; i++) {
+//         natija = natija * i;
+//     }
+
+//     return natija;
+// }
 
 // 6-masala: [for] 1 dan 100 gacha bo'lgan juft sonlarni massivga
 // yig'ib qaytaruvchi funksiya yozing.
-function masala6() {}
+// function juftSonlarniYig() {
+//     let juftSonlar = [];
+
+//     for (let i = 1; i <= 100; i++) {
+//         if (i % 2 === 0) {
+//             juftSonlar.push(i);
+//         }
+//     }
+
+//     return juftSonlar;
+// }
 
 // 7-masala: [while] Berilgan sonning raqamlar yig'indisini
 // while sikli yordamida hisoblang. Masalan: 123 -> 1+2+3 = 6
-function masala7(son) {}
 
+// function masala7(son) {
+//   let son1 = String(son);
+//   let arr = son1.split("");
+//   let y = 0;
+//   let i = 0;
+//   while (i <= arr.length) {
+//     y += Number(i);
+//     i++;r3
+//   }
+//   return y;
+// }
+// console.log(masala7(12345));
 // 8-masala: [while] Berilgan sondan boshlab 1 gacha teskari
 // hisoblovchi (countdown) funksiya yozing, natijalarni massivga yozib qaytaring.
-function masala8(son) {}
+// function teskariHisob(son) {
+//     let natija = [];
+
+//     while (son >= 1) {
+//         natija.push(son);
+//         son = son - 1;
+//     }
+
+//     return natija;
+// }
+
+// console.log(teskariHisob(5)); 
+
 
 // 9-masala: [do-while] Foydalanuvchidan kiritilgan son (parametr) manfiy
 // bo'lmaguncha uni kamaytirib borishni simulyatsiya qiluvchi funksiya yozing
 // (har safar 1 ga kamaytiring, qiymatlarni massivga saqlang).
-function masala9(son) {}
-
+// function kamaytirish(son) {
+//     let natija = [];
+//     if (son < 0) {
+//         return natija;
+//     }
+//     do {
+//         natija.push(son);
+//         son = son - 1;
+//     } while (son >= 0);
+//     return natija;
+// }
+// console.log(kamaytirish(3));
 // 10-masala: [do-while] 1 dan boshlab kvadratlarini hisoblab,
 // natija 50 dan katta bo'lguncha davom ettiruvchi funksiya yozing.
-function masala10() {}
 
+// function masala10() {
+//     let son = 1;
+
+//     do {
+//         let kvadrat = son * son;
+        
+//         console.log(son + " ning kvadrati = " + kvadrat);
+
+//         if (kvadrat > 50) {
+//             console.log("Natija 50 dan katta bo'ldi! Sikl to'xtaydi.");
+//         }
+
+//         son = son + 1;
+
+//     } while ((son - 1) * (son - 1) <= 50); 
+// }
+
+// masala10();
 // 11-masala: [string] Berilgan matnning uzunligini qaytaruvchi funksiya yozing.
 function masala11(matn) {}
 
