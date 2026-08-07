@@ -34,19 +34,28 @@ console.log(Math.PI);
 //*10-topshiriq 0 va 1 oralig'ida tasodifiy son hosil qiling va konsolga chiqaring.
 console.log(Math.random());
 //*11-topshiriq 4.7 sonini eng yaqin butun songa yaxlitlang va natijani konsolga chiqaring.
+console.log(Math.round(4.7));
 
 //*12-topshiriq 4.9 sonini pastga (floor) yaxlitlang va natijani konsolga chiqaring.
+console.log(Math.floor(4.9));
 
 //*13-topshiriq 4.1 sonini yuqoriga (ceil) yaxlitlang va natijani konsolga chiqaring.
+console.log(Math.ceil(4.1));
 
 //*14-topshiriq [5, 10, 3, 8] massividagi eng katta sonni toping va konsolga chiqaring.
+console.log(Math.max(5, 10, 3, 8));
 
 //*15-topshiriq [5, 10, 3, 8] massividagi eng kichik sonni toping va konsolga chiqaring.
+console.log(Math.min(5, 10, 3, 8));
 
 //*16-topshiriq -7 sonining absolut (modul) qiymatini toping va konsolga chiqaring.
+console.log(Math.abs(-7));
 
 //*17-topshiriq 2 ning 3-darajasini hisoblang va konsolga chiqaring.
+console.log(Math.pow(2, 3));
 
 //*18-topshiriq 16 ning kvadrat ildizini toping va konsolga chiqaring.
+console.log(Math.sqrt(16));
 
 //*19-topshiriq 27 ning kub ildizini toping va konsolga chiqaring.
+console.log(Math.cbrt(27));
