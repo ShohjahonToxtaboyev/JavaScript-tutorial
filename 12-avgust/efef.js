@@ -10,10 +10,15 @@ div1.addEventListener("click", () => {
   div1.innerHTML = `<button style="width: 100px; height: 60px; border: none; background-color: green; color: snow;">Tolov qilinmagan</button>`
   div1.style.borderRadius="20px"
 
+  div1.addEventListener("click", () => {
+  console.log("Ishladi");
+  btn.innerHTML = "✅ To'lov qilindi";
+  btn.style.backgroundColor = "green";
+  sound.play();
+});
 
 
 
-  
 });
 
 
