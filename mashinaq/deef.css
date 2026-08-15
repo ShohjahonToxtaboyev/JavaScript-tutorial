@@ -6,10 +6,10 @@
 .div{ 
     align-items: center;
     justify-content: space-around;
-    border: 1px solid red;
+    
     width: 100px;
     
-    margin: 0px 0px 0px 700px;
+    margin: 100px 0px 0px 700px;
     width: 200px;
     height: 330px;
     padding: 10px 10px 10px 10px;
@@ -52,10 +52,11 @@
 
 }
 .div4{
-    margin: 0px 0px 0px 730px;
-    border: 1px solid red;
+    margin: 0px 0px 0px 760px;
+
     width: 100px;
     height: 100px;
     padding: 100px 0px 0px 0px;
+    background-color:black;
 }
 
