@@ -5,7 +5,6 @@
   font-family: Arial, sans-serif;
 }
 
-/* Orqa fon ko'k rangda */
 body {
   background-color: #0099cc;
   display: flex;
@@ -14,7 +13,6 @@ body {
   min-height: 100vh;
 }
 
-/* Oq blok sozlamalari */
 .login-card {
   background-color: #ffffff;
   width: 900px;
@@ -24,7 +22,6 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Chap tomon (Forma) */
 .left-side {
   width: 50%;
   padding: 50px;
@@ -69,7 +66,6 @@ h1 {
   text-align: right;
 }
 
-/* Pushti kirish tugmasi */
 .sign-in-btn {
   width: 100%;
   padding: 12px;
@@ -88,7 +84,6 @@ h1 {
   margin: 20px 0;
 }
 
-/* Ijtimoiy tugmalar */
 .social-buttons {
   display: flex;
   justify-content: space-between;
@@ -117,7 +112,6 @@ h1 {
   text-decoration: none;
 }
 
-/* O'ng tomon (Rasm) */
 .right-side {
   width: 50%;
   background-color: #f0f8ff;
