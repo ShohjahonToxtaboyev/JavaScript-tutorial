@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transform: 0.7S ;
+}
+
+.nav-middle {
+    width: 564px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-middle a {
+    text-decoration: none;
+    color: black;
+}
