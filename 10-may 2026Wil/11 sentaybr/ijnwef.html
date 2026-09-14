@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BitDo'kon</title>
+<style>
+  :root{
+    --bg:#0f1220;
+    --panel:#171b2e;
+    --panel2:#1f2440;
+    --accent:#f5b301;
+    --accent2:#00d4a0;
+    --text:#eef0fa;
+    --muted:#9aa0c0;
+    --danger:#ff5470;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', Tahoma, Arial, sans-serif;
+    background:radial-gradient(circle at 20% 0%, #1b2040 0%, var(--bg) 60%);
+    color:var(--text);
+    min-height:100vh;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    background:linear-gradient(90deg,#181c30,#12142200);
+    border-bottom:2px solid var(--accent);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:0.5px;
+  }
+  .logo span.coin{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;height:36px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#1a1a1a;
+    font-weight:900;
+  }
+  .warn-badge{
+    font-size:12px;
+    color:var(--danger);
+    border:1px solid var(--danger);
+    padding:4px 10px;
+    border-radius:20px;
+    background:rgba(255,84,112,0.08);
+    font-weight:600;
+    max-width:520px;
+  }
+  .user-box{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--panel2);
+    padding:8px 16px;
+    border-radius:14px;
+  }
+  .balance{
+    color:var(--accent);
+    font-weight:800;
+    font-size:15px;
+  }
+  .cart-btn{
+    position:relative;
+    background:var(--accent2);
+    color:#08221a;
+    border:none;
+    padding:10px 16px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:15px;
+  }
+  .cart-count{
+    position:absolute;
+    top:-8px;right:-8px;
+    background:var(--danger);
+    color:white;
+    border-radius:50%;
+    width:22px;height:22px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;
+    font-weight:800;
+  }
+  main{
+    padding:28px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .disclaimer{
+    background:var(--panel);
+    border:1px dashed var(--danger);
+    border-radius:14px;
+    padding:14px 18px;
+    margin-bottom:24px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.5;
+  }
+  .disclaimer b{color:var(--danger);}
+ 
+  #auth-screen{
+    max-width:420px;
+    margin:60px auto;
+    background:var(--panel);
+    padding:32px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  }
+  #auth-screen h2{margin-top:0;}
+  #auth-screen input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #333a5c;
+    background:var(--panel2);
+    color:var(--text);
+    font-size:15px;
+    margin-bottom:14px;
+    outline:none;
+  }
+  #auth-screen input:focus{border-color:var(--accent);}
+  #auth-screen button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:var(--accent);
+    color:#1a1400;
+    font-weight:800;
+    font-size:16px;
+    cursor:pointer;
+  }
+  #auth-note{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.4;
+  }
+ 
+  .tabs{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+  }
+  .tab-btn{
+    background:var(--panel);
+    color:var(--muted);
+    border:1px solid #2a2f4d;
+    padding:10px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:14px;
+  }
+  .tab-btn.active{
+    background:var(--accent);
+    color:#1a1400;
+    border-color:var(--accent);
+  }
+ 
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
+    gap:20px;
+  }
+  .card{
+    background:var(--panel);
+    border-radius:18px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    border:1px solid #262b48;
+    transition:transform .15s ease;
+  }
+  .card:hover{transform:translateY(-4px);}
+  .card .art{
+    height:130px;
+    border-radius:14px;
+    background:var(--panel2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .card .art svg{width:80%;height:80%;}
+  .card h3{margin:4px 0 0;font-size:16px;}
+  .card .price{
+    color:var(--accent);
+    font-weight:800;
+    font-size:15px;
+  }
+  .add-btn{
+    margin-top:auto;
+    background:var(--accent2);
+    border:none;
+    color:#08221a;
+    padding:10px;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:18px;
+  }
+  .add-btn:active{transform:scale(0.96);}
+ 
+  #cart-overlay{
+    position:fixed;
+    top:0;right:0;
+    width:360px;
+    height:100%;
+    background:var(--panel);
+    box-shadow:-10px 0 40px rgba(0,0,0,0.5);
+    transform:translateX(100%);
+    transition:transform .25s ease;
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+  }
+  #cart-overlay.open{transform:translateX(0);}
+  #cart-overlay h2{margin-top:0;display:flex;justify-content:space-between;align-items:center;}
+  #cart-overlay h2 button{
+    background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;
+  }
+  #cart-items{
+    flex:1;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .cart-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--panel2);
+    padding:10px;
+    border-radius:12px;
+  }
+  .cart-item .mini-art{
+    width:44px;height:44px;
+    border-radius:8px;
+    background:#12152a;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cart-item .mini-art svg{width:70%;height:70%;}
+  .cart-item .info{flex:1;}
+  .cart-item .info .nm{font-weight:700;font-size:13px;}
+  .cart-item .info .pr{font-size:12px;color:var(--muted);}
+  .qty-ctrl{
+    display:flex;align-items:center;gap:6px;
+  }
+  .qty-ctrl button{
+    width:22px;height:22px;
+    border-radius:6px;
+    border:none;
+    background:#2c3155;
+    color:var(--text);
+    cursor:pointer;
+    font-weight:800;
+  }
+  #cart-footer{
+    border-top:1px solid #2a2f4d;
+    padding-top:14px;
+  }
+  #cart-total{
+    display:flex;justify-content:space-between;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  #checkout-btn{
+    width:100%;
+    padding:12px;
+    background:var(--accent);
+    border:none;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:15px;
+  }
+  #overlay-bg{
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(0,0,0,0.4);
+    z-index:40;
+    display:none;
+  }
+  #overlay-bg.show{display:block;}
+  .empty-msg{color:var(--muted);text-align:center;margin-top:40px;font-size:14px;}
+  .toast{
+    position:fixed;
+    bottom:24px;left:50%;
+    transform:translateX(-50%);
+    background:var(--accent2);
+    color:#08221a;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:700;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    opacity:0;
+    transition:opacity .3s ease;
+    z-index:100;
+    pointer-events:none;
+  }
+  .toast.show{opacity:1;}
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+ 
+<div id="overlay-bg"></div>
+ 
+<!-- RO'YXATDAN O'TISH OYNASI -->
+<div id="auth-screen">
+  <div class="logo" style="justify-content:center;margin-bottom:10px;">
+    <span class="coin">₮</span> BitDo'kon
+  </div>
+  <h2>Ro'yxatdan o'tish</h2>
+  <input id="reg-name" type="text" placeholder="Ismingizni kiriting">
+  <button onclick="register()">Ro'yxatdan o'tish va sovg'a olish 🎁</button>
+  <div id="auth-note">
+    Ro'yxatdan o'tgan har bir foydalanuvchiga <b>1 000 000 000 000 000</b> birlik <b>o'yin puli</b> beriladi.<br>
+    ⚠️ Diqqat: bu pul <b>haqiqiy pul emas</b>, hech qanday real qiymatga ega emas — faqat shu sayt ichidagi o'yin/demo balansi.
+  </div>
+</div>
+ 
+<!-- ASOSIY SAYT -->
+<div id="shop" class="hidden">
+  <header>
+    <div class="logo"><span class="coin">₮</span> BitDo'kon</div>
+    <div class="warn-badge">⚠️ Ushbu saytdagi pul soxta (haqiqiy emas) — faqat demo/o'yin balansi, real qiymati yo'q</div>
+    <div class="user-box">
+      <span id="user-greet"></span>
+      <span class="balance">💰 <span id="balance-amt">0</span></span>
+      <button class="cart-btn" onclick="openCart()">🛒 Savat
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+ 
+  <main>
+    <div class="disclaimer">
+      Bu — <b>o'quv/demo maqsadidagi</b> internet-do'kon namunasi. Balansdagi raqamlar va mahsulot narxlari
+      <b>o'ylab topilgan (soxta)</b>, hech qanday haqiqiy pul yoki to'lov amalga oshirilmaydi.
+    </div>
+ 
+    <div class="tabs">
+      <button class="tab-btn active" data-cat="all" onclick="filterCat('all')">Barchasi</button>
+      <button class="tab-btn" data-cat="car" onclick="filterCat('car')">🚗 Mashinalar</button>
+      <button class="tab-btn" data-cat="bag" onclick="filterCat('bag')">👜 Sumkalar</button>
+    </div>
+ 
+    <div class="grid" id="product-grid"></div>
+  </main>
+</div>
+ 
+<!-- SAVAT PANELI -->
+<div id="cart-overlay">
+  <h2>Savat <button onclick="closeCart()">✕</button></h2>
+  <div id="cart-items"></div>
+  <div id="cart-footer">
+    <div id="cart-total"><span>Jami:</span><span id="cart-total-amt">0</span></div>
+    <button id="checkout-btn" onclick="checkout()">Sotib olish ✅</button>
+  </div>
+</div>
+ 
+<div class="toast" id="toast"></div>
+ 
+<script>
+// ------- SVG IKONALAR (mashina / sumka) -------
+const carSVG = `<svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="18" width="56" height="12" rx="4" fill="#f5b301"/>
+  <path d="M10 18 L18 8 H46 L54 18 Z" fill="#00d4a0"/>
+  <circle cx="16" cy="32" r="6" fill="#12152a" stroke="#eef0fa" stroke-width="2"/>
+  <circle cx="48" cy="32" r="6" fill="#12152a" stroke="#eef0fa" stroke-width="2"/>
+  <rect x="21" y="11" width="9" height="7" fill="#12152a" opacity="0.5"/>
+  <rect x="33" y="11" width="9" height="7" fill="#12152a" opacity="0.5"/>
+</svg>`;
+ 
+const bagSVG = `<svg viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 22 C20 10 44 10 44 22" fill="none" stroke="#f5b301" stroke-width="4"/>
+  <rect x="12" y="22" width="40" height="28" rx="6" fill="#00d4a0"/>
+  <rect x="12" y="22" width="40" height="10" fill="#0f1220" opacity="0.25"/>
+  <circle cx="32" cy="38" r="4" fill="#12152a"/>
+</svg>`;
+ 
+// ------- MAHSULOTLAR RO'YXATI (narxlar minglab so'zda) -------
+const products = [
+  {id:1, cat:'car', name:"Lasetti Sport", price:85000, art:carSVG},
+  {id:2, cat:'car', name:"Cobalt Premium", price:97000, art:carSVG},
+  {id:3, cat:'car', name:"Malibu Lux", price:154000, art:carSVG},
+  {id:4, cat:'car', name:"Tracker AWD", price:132000, art:carSVG},
+  {id:5, cat:'car', name:"Onix Turbo", price:110000, art:carSVG},
+  {id:6, cat:'car', name:"Damas Cargo", price:62000, art:carSVG},
+  {id:7, cat:'bag', name:"Klassik teri sumka", price:1200, art:bagSVG},
+  {id:8, cat:'bag', name:"Sport ryukzak", price:850, art:bagSVG},
+  {id:9, cat:'bag', name:"Xonimlar uchun clutch", price:640, art:bagSVG},
+  {id:10, cat:'bag', name:"Sayohat sumkasi (katta)", price:1750, art:bagSVG},
+  {id:11, cat:'bag', name:"Ofis portfeli", price:990, art:bagSVG},
+  {id:12, cat:'bag', name:"Bolalar sumkasi", price:320, art:bagSVG},
+];
+ 
+const GIFT_AMOUNT = 1000000000000000; // 1 000 000 000 000 000 - soxta pul
+ 
+let state = {
+  user: null,
+  balance: 0,
+  cart: {} // id -> qty
+};
+ 
+function fmt(n){
+  return n.toLocaleString('ru-RU').replace(/,/g,' ');
+}
+ 
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+ 
+function register(){
+  const name = document.getElementById('reg-name').value.trim();
+  if(!name){
+    toast("Iltimos, ismingizni kiriting!");
+    return;
+  }
+  state.user = name;
+  state.balance = GIFT_AMOUNT;
+  document.getElementById('auth-screen').classList.add('hidden');
+  document.getElementById('shop').classList.remove('hidden');
+  document.getElementById('user-greet').textContent = "Salom, " + name + "!";
+  updateBalance();
+  renderProducts('all');
+  toast("Xush kelibsiz! Sizga 1 000 000 000 000 000 (soxta) pul berildi 🎉");
+}
+ 
+function updateBalance(){
+  document.getElementById('balance-amt').textContent = fmt(state.balance);
+}
+ 
+function renderProducts(cat){
+  const grid = document.getElementById('product-grid');
+  grid.innerHTML = '';
+  const list = products.filter(p => cat === 'all' || p.cat === cat);
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="art">${p.art}</div>
+      <h3>${p.name}</h3>
+      <div class="price">${fmt(p.price)} so'm (soxta)</div>
+      <button class="add-btn" onclick="addToCart(${p.id})">+</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+ 
+function filterCat(cat){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.tab-btn[data-cat="${cat}"]`).classList.add('active');
+  renderProducts(cat);
+}
+ 
+function addToCart(id){
+  state.cart[id] = (state.cart[id] || 0) + 1;
+  updateCartCount();
+  renderCartItems();
+  toast("Savatga qo'shildi ✅");
+}
+ 
+function changeQty(id, delta){
+  if(!state.cart[id]) return;
+  state.cart[id] += delta;
+  if(state.cart[id] <= 0) delete state.cart[id];
+  updateCartCount();
+  renderCartItems();
+}
+ 
+function updateCartCount(){
+  const count = Object.values(state.cart).reduce((a,b)=>a+b,0);
+  document.getElementById('cart-count').textContent = count;
+}
+ 
+function cartTotal(){
+  return Object.entries(state.cart).reduce((sum,[id,qty])=>{
+    const p = products.find(pp=>pp.id==id);
+    return sum + (p ? p.price*qty : 0);
+  },0);
+}
+ 
+function renderCartItems(){
+  const box = document.getElementById('cart-items');
+  const ids = Object.keys(state.cart);
+  if(ids.length === 0){
+    box.innerHTML = '<div class="empty-msg">Savat bo\'sh. Mahsulot qo\'shing!</div>';
+  } else {
+    box.innerHTML = ids.map(id=>{
+      const p = products.find(pp=>pp.id==id);
+      const qty = state.cart[id];
+      return `
+        <div class="cart-item">
+          <div class="mini-art">${p.art}</div>
+          <div class="info">
+            <div class="nm">${p.name}</div>
+            <div class="pr">${fmt(p.price)} so'm x ${qty}</div>
+          </div>
+          <div class="qty-ctrl">
+            <button onclick="changeQty(${id},-1)">-</button>
+            <span>${qty}</span>
+            <button onclick="changeQty(${id},1)">+</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+  document.getElementById('cart-total-amt').textContent = fmt(cartTotal()) + " so'm";
+}
+ 
+function openCart(){
+  document.getElementById('cart-overlay').classList.add('open');
+  document.getElementById('overlay-bg').classList.add('show');
+  renderCartItems();
+}
+function closeCart(){
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.getElementById('overlay-bg').classList.remove('show');
+}
+document.getElementById('overlay-bg').addEventListener('click', closeCart);
+ 
+function checkout(){
+  const total = cartTotal();
+  if(total === 0){
+    toast("Savat bo'sh!");
+    return;
+  }
+  if(total > state.balance){
+    toast("Balansingiz yetarli emas!");
+    return;
+  }
+  state.balance -= total;
+  state.cart = {};
+  updateBalance();
+  updateCartCount();
+  renderCartItems();
+  toast("Xarid muvaffaqiyatli bajarildi! (Bu — soxta, demo to'lov) 🎉");
+  closeCart();
+}
+</script>
+ 
+</body>
+</html>
+ 
+ 
